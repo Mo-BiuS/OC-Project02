@@ -9,7 +9,6 @@ public class SymptomMapSort implements ISymptomMapSort {
 	private Map<String, Integer> map = null;
 	private SortType sortType = null;
 	
-	public SymptomMapSort() {}
 	public SymptomMapSort(Map<String, Integer> map, SortType sortType) {
 		setMap(map);
 		setSortType(sortType);

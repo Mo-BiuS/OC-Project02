@@ -8,7 +8,6 @@ public class SymptomListToMap implements ISymptomListToMap {
 
 	List<String> list = null;
 	
-	public SymptomListToMap(){}
 	public SymptomListToMap(List<String> list){
 		setList(list);
 	}

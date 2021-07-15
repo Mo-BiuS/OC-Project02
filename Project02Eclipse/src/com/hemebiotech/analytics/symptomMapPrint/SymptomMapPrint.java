@@ -10,7 +10,6 @@ public class SymptomMapPrint implements ISymptomMapPrint {
 	private Map<String, Integer> map = null;
 	private String path = null;
 	
-	public SymptomMapPrint(){}
 	public SymptomMapPrint(Map<String, Integer> map, String path){
 		setMap(map);
 		setPath(path);

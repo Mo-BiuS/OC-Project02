@@ -13,7 +13,6 @@ public class SymptomReader implements ISymptomReader {
 
 	private String path;
 
-	public SymptomReader(){}
 	public SymptomReader(String path){
 		setPath(path);
 	}
