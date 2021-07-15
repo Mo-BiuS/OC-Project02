@@ -12,6 +12,10 @@ import java.util.List;
  */
 public interface ISymptomReader {
 	/**
+	 * @param path the path to the symptom list
+	 */
+	void setPath(String path);
+	/**
 	 * If no data is available, return an empty List
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable

@@ -5,5 +5,5 @@ package com.hemebiotech.analytics.symptomMapSort;
  * Enumeration of each sorting type supported by the other classes of the program
  */
 public enum SortType {
-
+	KeyAscending, ValueAscending;
 }

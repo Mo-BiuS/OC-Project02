@@ -8,19 +8,28 @@ import java.util.List;
 
 /**
  * Simple brute force implementation
- *
  */
 public class SymptomReader implements ISymptomReader {
 
-	private String filepath;
+	private String path;
 
+	public SymptomReader(){}
+	public SymptomReader(String path){
+		setPath(path);
+	}
+	
+	@Override
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
 	@Override
 	public List<String> GetSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 		
-		if (filepath != null) {
+		if (path != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+				BufferedReader reader = new BufferedReader (new FileReader(path));
 				String line = reader.readLine();
 				
 				while (line != null) {
