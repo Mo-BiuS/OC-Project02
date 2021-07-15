@@ -1,6 +1,9 @@
 package com.hemebiotech.analytics.symptomMapPrint;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class SymptomMapPrint implements ISymptomMapPrint {
 
@@ -25,8 +28,19 @@ public class SymptomMapPrint implements ISymptomMapPrint {
 
 	@Override
 	public boolean print() {
-		// TODO Auto-generated method stub
-		return false;
+		FileWriter writer;
+		try {
+			writer = new FileWriter (path);
+			for(Entry<String, Integer> data : map.entrySet()) {
+				writer.write(data.getKey() +" : "+data.getValue());
+			}
+			writer.close();
+			return true;
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }
