@@ -16,6 +16,7 @@ public class Main {
 			System.out.println("PathIn found");
 			
 			analyticsCounter.setPathOut(out);
+			analyticsCounter.setCanOverride(true);
 				
 			if(analyticsCounter.print())System.out.println("Print successful");
 			else System.out.println("Print failed");

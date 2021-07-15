@@ -27,4 +27,6 @@ public interface IAnalyticsCounter {
 	 * @return true if say print was successful
 	 */
 	boolean print();
+
+	void setCanOverride(boolean canOverride);
 }

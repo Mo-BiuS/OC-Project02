@@ -18,6 +18,9 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	private String pathIn = null;
 	private String pathOut = null;
 	
+	boolean canOverride = false;
+	boolean willOverride;
+	
 	@Override
 	public boolean setPathIn(String pathIn) {
 		if(fileExist(pathIn)){
@@ -32,13 +35,18 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	public boolean setPathOut(String pathOut) {
 		if(pathExist(pathOut)) {
 			this.pathOut = pathOut;
-			return !fileExist(pathOut);
+			return willOverride = !fileExist(pathOut);
 		}else return false;
+	}
+	
+	@Override
+	public void setCanOverride(boolean canOverride) {
+		this.canOverride = canOverride;
 	}
 
 	@Override
 	public boolean print() {
-		if(fileExist(pathIn) && pathOut != null) {
+		if(fileExist(pathIn) && pathOut != null && (willOverride || canOverride)) {
 			reader = new SymptomReader(pathIn);
 			listToMap = new SymptomListToMap(reader.GetSymptoms());
 			mapSortKey = new SymptomMapSort(listToMap.getMap(),SortType.KeyAscending);
@@ -58,4 +66,5 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 		if (path != null) return (new File((new File(path)).getPath())).exists();
 		else return false;
 	}
+
 }
