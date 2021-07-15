@@ -32,7 +32,7 @@ public class SymptomMapPrint implements ISymptomMapPrint {
 		try {
 			writer = new FileWriter (path);
 			for(Entry<String, Integer> data : map.entrySet()) {
-				writer.write(data.getKey() +" : "+data.getValue());
+				writer.write(data.getKey() +" : "+data.getValue()+"\n");
 			}
 			writer.close();
 			return true;
