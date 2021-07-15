@@ -18,8 +18,6 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	private String pathIn = null;
 	private String pathOut = null;
 	
-	private boolean willOverride = false;
-	
 	@Override
 	public boolean setPathIn(String pathIn) {
 		if(fileExist(pathIn)){
@@ -32,8 +30,10 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 
 	@Override
 	public boolean setPathOut(String pathOut) {
-		this.pathOut = pathOut;
-		return (willOverride = fileExist(pathIn));
+		if(pathExist(pathOut)) {
+			this.pathOut = pathOut;
+			return !fileExist(pathOut);
+		}else return false;
 	}
 
 	@Override
@@ -50,8 +50,12 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 		else return false;
 	}
 	
-	public boolean fileExist(String path) {
+	private boolean fileExist(String path) {
 		if (path != null) return (new File(path)).exists();
+		else return false;
+	}
+	private boolean pathExist(String path) {
+		if (path != null) return (new File((new File(path)).getPath())).exists();
 		else return false;
 	}
 }

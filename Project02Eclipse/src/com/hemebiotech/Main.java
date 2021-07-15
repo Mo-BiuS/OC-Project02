@@ -15,8 +15,7 @@ public class Main {
 		if(analyticsCounter.setPathIn(in)) {
 			System.out.println("PathIn found");
 			
-			if(analyticsCounter.setPathOut(out)) System.out.println("Print will not override");
-			else System.out.println("Print will override");
+			analyticsCounter.setPathOut(out);
 				
 			if(analyticsCounter.print())System.out.println("Print successful");
 			else System.out.println("Print failed");
